@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+
+    "name": "Fleex for chrome",
+    "description": "Learn English reading your favorite web pages",
+    "version": "1.0",
+
+    "permissions": [
+        "http://fleex.tv/"
+    ],
+    "browser_action": {
+        "default_icon": {
+            "19": "img/icon19.png",
+            "38": "img/icon38.png"
+        },
+        "default_title":"Fleex this page",
+        "default_popup": "popup.html"
+    }
+}
