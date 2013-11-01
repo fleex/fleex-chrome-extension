@@ -2,34 +2,38 @@
 <html>
     <head>
         <title>Fleex Chrome extension</title>
-        <style>
-			
-        </style>
+        <link href="styles/popup.css" rel="stylesheet">
         <script src="scripts/jquery-1.8.3.js"></script>
     	<script src="scripts/popup.js"></script>
     	<script src="scripts/fleex-page.js"></script>
   	</head>
     <body>
-		<fieldset>
-                <div class="editor-label">
-                    <label for="Email">Email</label>
-                </div>
-                <div class="editor-field">
-                    <input data-val="true" data-val-regex="Please use a valid email address." data-val-regex-pattern="^[a-z0-9_\+-]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$" data-val-required="Required" id="Email" name="Email" type="text" value="">
-                    <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
-                </div>
+    	<div id="login">
+	    	<header>
+	    		Login
+	    	</header>
+			<fieldset>
+	            <div class="editor-label">
+	                <label for="Email">Email</label>
+	            </div>
+	            <div class="editor-field">
+	                <input id="Email" name="Email" type="text" value="">
+	            </div>
 
-                <div class="editor-label" id="passwordLabel">
-                    <label for="Password">Password</label>
-                </div>
-                <div class="editor-field">
-                    <input data-val="true" data-val-required="Required" id="Password" name="Password" type="password">
-                    <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
-                </div>
-                <p>
-                    <input type="submit" id="submitButton" value="Login" class="btn btn-primary">
-                </p>
-            </fieldset>
+	            <div class="editor-label" id="passwordLabel">
+	                <label for="Password">Password</label>
+	            </div>
+	            <div class="editor-field">
+	                <input id="Password" name="Password" type="password">
+	            </div>
+	            <p>
+	                <input type="submit" id="submitButton" value="Login" class="btn btn-primary">
+	            </p>
+	        </fieldset>
+    	</div>
+    	<div id="loading">
+    		
+    	</div>
     </body>
 </html>
 
