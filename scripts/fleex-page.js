@@ -1,5 +1,7 @@
 // The main function, that fleexes the page
 function fleexPage () {
-	//TODO
-	alert('TODO: Fleex the page');
+	//close popup
+	window.close();
+	//TODO: fleex the page
+	console.log('TODO: Fleex the page');
 }
