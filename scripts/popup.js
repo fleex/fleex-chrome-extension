@@ -24,7 +24,7 @@ $(function(){
 				var serverBaseUrl = settings.serverBaseUrl;
 				$.ajax({
 					type:'POST',
-					url:serverBaseUrl+'Account/BrowserExtensionLogin',
+					url:serverBaseUrl+'/Account/BrowserExtensionLogin',
 					data:{
 						'email':$('#Email').val(),
 						'password':$('#Password').val()
