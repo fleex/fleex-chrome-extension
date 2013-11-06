@@ -17,25 +17,29 @@ function fleexTab (tab) {
 			$.ajax(serverBaseUrl+'/Scripts/libs/twitter-bootstrap/bootstrap-popover.js'), 
 			$.ajax(serverBaseUrl+'/Scripts/libs/twitter-bootstrap/plugins/bootstrap-classyTooltip.js'), 
 			$.ajax(serverBaseUrl+'/Scripts/libs/twitter-bootstrap/plugins/bootstrap-classyPopover.js'), 
-			$.ajax(serverBaseUrl+'/Scripts/shared/Tracker.js'),
+			$.ajax(serverBaseUrl+'/Scripts/app/shared/Tracker.js'),
 			$.ajax(serverBaseUrl+'/Scripts/app/shared/BrowserDetect.js'),
 			$.ajax(serverBaseUrl+'/Scripts/app/shared/LanguageCodes.js'),
 			$.ajax(serverBaseUrl+'/Scripts/app/shared/MicrosoftTranslator.js'),
 			$.ajax(serverBaseUrl+'/Scripts/app/shared/WordAnalyzer.js'),
 			$.ajax(serverBaseUrl+'/Scripts/app/shared/VocabularyManager.js')
 		]).done(function() {
-			// Inject remote js dependencies
+			// Inject dependencies
 			for (var i = 0; i < arguments.length; i++) {
 				// Replace relative urls to absolute urls
 				var code = arguments[i][0].replace(/url(( )*)?:(( )*)?'\//g,"url: '"+serverBaseUrl+"/");
 				// Jsonp calls are not supported in chrome, and we don't need them
-				code = code.replace(/(')?dataType(')?(( )*)?:(( )*)?'jsonp'(( )*)?,/, '')
+				code = code.replace(/(')?dataType(')?(( )*)?:(( )*)?'jsonp'(( )*)?,/, '');
+				// Inject script into page
 				chrome.tabs.executeScript(tab.id, { 'code': code });
 			};
 
-			// Inject css styles into page
-			$.ajax(serverBaseUrl+'/Content/less/extension/styles.less').done(function(res){
-	            chrome.tabs.insertCSS(tab.id, { code: res[0] })
+			// Inject remote css styles
+			$.ajax(serverBaseUrl+'/Content/less/extension/styles.less').done(function(code){
+				// Replace relative urls to absolute urls
+				var code = code.replace(/url\((.*)\)/g,"url("+serverBaseUrl+"$1)").replace(/'/g, '');
+				// Inject styles into page
+	            chrome.tabs.insertCSS(tab.id, { 'code': code })
 			})
 			
 			// Execute content script to actually fleex the page
