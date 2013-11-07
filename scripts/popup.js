@@ -6,7 +6,6 @@ $(function(){
 			} else{
 				// Get current tab, and fleex it
 				chrome.tabs.query({active:true,currentWindow:true},function(tab){
-					debugger;
 					fleexTab(tab[0]);
 				});
 			}
