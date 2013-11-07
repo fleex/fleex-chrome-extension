@@ -1,11 +1,12 @@
 $(function(){
-		function onSuccess (data) {
+		function onSuccess (success) {
 			$('body').removeClass('loading');
-			if(data!='True'){ 
+			if(success != 'True'){ 
 				onFailure(); 
 			} else{
 				// Get current tab, and fleex it
 				chrome.tabs.query({active:true,currentWindow:true},function(tab){
+					debugger;
 					fleexTab(tab[0]);
 				});
 			}
@@ -29,8 +30,12 @@ $(function(){
 						'email':$('#Email').val(),
 						'password':$('#Password').val()
 					},
-					error:onFailure,
-					success:onSuccess
+					error:function(){
+						onFailure();
+					},
+					success:function(success){
+						onSuccess(success);
+					}
 				})
 			})
 		})

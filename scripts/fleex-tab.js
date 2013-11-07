@@ -41,7 +41,7 @@ function fleexTab (tab) {
 				// Inject styles into page
 	            chrome.tabs.insertCSS(tab.id, { 'code': code })
 			})
-			
+
 			// Execute content script to actually fleex the page
 			chrome.tabs.executeScript(tab.id, { file: 'scripts/fleex-page.js' });
 
