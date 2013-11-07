@@ -9,20 +9,21 @@ function fleexTab (tab) {
 
 		// Fetch (remote) or (static + dynamic) js dependencies
 		$.when.apply($, [
-			$.ajax(chrome.extension.getURL('scripts/google-analytics.js')),
-			$.ajax(serverBaseUrl+'/Scripts/libs/underscore-1.5.1.js'), 
-			$.ajax(serverBaseUrl+'/Scripts/libs/jquery/jquery.tokenize.js'), 
-			$.ajax(serverBaseUrl+'/Scripts/libs/jquery/jquery.highlight.js'), 
-			$.ajax(serverBaseUrl+'/Scripts/libs/twitter-bootstrap/bootstrap-tooltip.js'), 
-			$.ajax(serverBaseUrl+'/Scripts/libs/twitter-bootstrap/bootstrap-popover.js'), 
-			$.ajax(serverBaseUrl+'/Scripts/libs/twitter-bootstrap/plugins/bootstrap-classyTooltip.js'), 
-			$.ajax(serverBaseUrl+'/Scripts/libs/twitter-bootstrap/plugins/bootstrap-classyPopover.js'), 
-			$.ajax(serverBaseUrl+'/Scripts/app/shared/Tracker.js'),
-			$.ajax(serverBaseUrl+'/Scripts/app/shared/BrowserDetect.js'),
-			$.ajax(serverBaseUrl+'/Scripts/app/shared/LanguageCodes.js'),
-			$.ajax(serverBaseUrl+'/Scripts/app/shared/MicrosoftTranslator.js'),
-			$.ajax(serverBaseUrl+'/Scripts/app/shared/WordAnalyzer.js'),
-			$.ajax(serverBaseUrl+'/Scripts/app/shared/VocabularyManager.js')
+			$.ajax({ url:serverBaseUrl+'/Scripts/libs/underscore-1.5.1.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/libs/jquery/jquery.tokenize.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/libs/jquery/jquery.highlight.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/libs/twitter-bootstrap/bootstrap-tooltip.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/libs/twitter-bootstrap/bootstrap-popover.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/libs/twitter-bootstrap/plugins/bootstrap-classyTooltip.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/libs/twitter-bootstrap/plugins/bootstrap-classyPopover.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/shared/Tracker.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/shared/BrowserDetect.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/shared/LanguageCodes.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/shared/MicrosoftTranslator.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/shared/WordAnalyzer.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/shared/VocabularyManager.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/extension/google-analytics.js', dataType:'text'}),
+			$.ajax({ url:serverBaseUrl+'/Scripts/extension/fleex-page.js', dataType:'text'}),
 		]).done(function() {
 			// Inject dependencies
 			for (var i = 0; i < arguments.length; i++) {
@@ -41,11 +42,8 @@ function fleexTab (tab) {
 				// Inject styles into page
 	            chrome.tabs.insertCSS(tab.id, { 'code': code })
 			})
-			
-			// Execute content script to actually fleex the page
-			chrome.tabs.executeScript(tab.id, { file: 'scripts/fleex-page.js' });
 
-			// Close popup (if needed)
+			// Close popup
 			// window.close();
 		});
 	})
