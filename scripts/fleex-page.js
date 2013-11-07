@@ -1,4 +1,3 @@
 // TODO: Don't hardcode the languages
-debugger;
-var vocabularyManager = new VocabularyManager({ code:1 }, { code:0 }, 'webPage', 'test');
+var vocabularyManager = new VocabularyManager({ code:'eng' }, { code:'fre' }, 'webPage', 'test');
 vocabularyManager.init($('body'));
