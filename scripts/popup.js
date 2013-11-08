@@ -1,6 +1,5 @@
 $(function(){
 	function onSuccess (success) {
-		$('body').removeClass('loading');
 		if(success != 'True'){ 
 			onFailure(); 
 		} else{
@@ -35,6 +34,8 @@ $(function(){
 				success:function(success){
 					onSuccess(success);
 				}
+			}).complete(function(){
+				$('body').removeClass('loading');
 			})
 		})
 	})
@@ -46,4 +47,7 @@ $(function(){
             $('#submitButton').click();
         }
     });
+
+	// focus on Email textbox
+    $("#login #Email").focus();
 })

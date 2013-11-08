@@ -1,13 +1,11 @@
 body{
 	color: #666;
-	/*background:#FAFAFA;*/
 	text-shadow: 0 1px white;
 	font-family: helvetica neue, helvetica, arial;
 	font-size: 14px;
 	margin:0;
 }
 header{
-	/*background: #EEE;*/
 	border-bottom:1px solid #DDD;
 	padding: 10px 20px 12px;
 	color: #666;
