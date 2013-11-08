@@ -47,7 +47,10 @@ function fleexTab (tab) {
 				// Inject remote css styles
 				$.ajax(serverBaseUrl+'/Content/less/extension/styles.less').done(function(code){
 					// Replace relative urls to absolute urls
-					var code = code.replace(/url\((.*)\)/g,"url("+serverBaseUrl+"$1)").replace(/'/g, '');
+					var code = code
+						.replace(/url\((.*)\)/g,"url("+serverBaseUrl+"$1)")
+						.replace(/, url\((.*)\)/g,", url("+serverBaseUrl+"$1)") // for composite backgrounds
+						.replace(/'/g, '');
 					// Inject styles into page
 		            chrome.tabs.insertCSS(tab.id, { 'code': code })
 				})
