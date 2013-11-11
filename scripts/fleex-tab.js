@@ -1,5 +1,12 @@
+// reactivate tab everytime it changes
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
+	//activate tab
+	chrome.browserAction.enable(tabId);
+})
+
 // The main function, that fleexes the page
 function fleexTab (tab) {
+
 	// Get server base url from settings
 	$.getJSON(chrome.extension.getURL('config.json'), function(settings) {
 		var serverBaseUrl = settings.serverBaseUrl;
@@ -57,6 +64,9 @@ function fleexTab (tab) {
 
 				// Close popup
 				// window.close();
+
+				// disable this extension for this page (until the page changes!)
+				chrome.browserAction.disable(tab.id);
 			});
 		})
 
