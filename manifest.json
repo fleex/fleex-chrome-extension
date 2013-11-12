@@ -2,7 +2,7 @@
     "manifest_version": 2,
 
     "name": "Fleex for chrome",
-    "description": "Learn English reading your favorite web pages",
+    "description": "Learn English surfing the web",
     "version": "1.0",
 
     "permissions": [
@@ -16,7 +16,7 @@
             "19": "img/icon19.png",
             "38": "img/icon38.png"
         },
-        "default_title":"Fleex this page"
+        "default_title": "Fleex this page"
     },
     "background": {
         "scripts": ["scripts/jquery-1.8.3.js", "scripts/fleex-tab.js", "scripts/background.js"],
