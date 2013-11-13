@@ -11,6 +11,7 @@ $(function(){
 	}
 
 	function onFailure () {
+		$('body').removeClass('loading');
 		$('header').addClass('error');
 	}
 
@@ -34,8 +35,6 @@ $(function(){
 				success:function(success){
 					onSuccess(success);
 				}
-			}).complete(function(){
-				$('body').removeClass('loading');
 			})
 		})
 	})
