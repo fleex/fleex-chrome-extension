@@ -52,3 +52,27 @@ $.getJSON(chrome.extension.getURL('config.json'), function(settings) {
 		}
 	})
 });
+
+// messaging ---------------------------------------------------------------------
+
+// listen to track ga events
+chrome.extension.onMessage.addListener(
+  	function(request, sender, sendResponse) {
+  		// track GAnalytics events
+	    if (request.type == "trackGaEvent" && request.gaEvent){
+	    	var gaEvent = request.gaEvent;
+	    	console.log("category= "+ gaEvent.category);
+	    	console.log("action= "+ gaEvent.action);
+	    	console.log("label= " + gaEvent.label);
+	    	console.log("value= " + gaEvent.value);
+	    	_gaq.push(['_trackEvent', gaEvent.category, gaEvent.action, gaEvent.label, gaEvent.value]);
+			/*ga('send', 'event', {
+			    eventCategory: eventCategory,
+			    eventAction: eventAction,
+			    eventLabel: eventLabel,
+			    eventValue: eventValue
+			});*/
+	    }
+    	//sendResponse({farewell: "goodbye"});
+	}
+);
