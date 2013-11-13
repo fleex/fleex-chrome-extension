@@ -34,7 +34,6 @@ function fleexTab (tab) {
 				$.ajax({ url:serverBaseUrl+'/Scripts/shared/WordAnalyzer.js', dataType:'text'}),
 				$.ajax({ url:serverBaseUrl+'/Scripts/shared/VocabularyManager.js', dataType:'text'}),
 				$.ajax({ url:serverBaseUrl+'/Scripts/extension/PhrasesManager.js', dataType:'text'}),
-				//$.ajax({ url:serverBaseUrl+'/Scripts/extension/google-analytics.js', dataType:'text'}),
 				$.ajax({ url:serverBaseUrl+'/Scripts/extension/fleex-page.js', dataType:'text'}),
 			]).done(function() {
 				// Inject dependencies

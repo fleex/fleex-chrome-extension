@@ -25,7 +25,7 @@
         "default_title": "Fleex this page"
     },
     "background": {
-        "scripts": ["scripts/jquery-1.8.3.js", "scripts/asyncTracking.js", "scripts/fleex-tab.js", "scripts/background.js"],
+        "scripts": ["scripts/jquery-1.8.3.js", "scripts/google-analytics.js", "scripts/fleex-tab.js", "scripts/background.js"],
         "persistent": false 
     },
     "content_scripts": [
