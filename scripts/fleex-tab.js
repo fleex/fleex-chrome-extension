@@ -59,13 +59,13 @@ function fleexTab (tab) {
 						.replace(/'/g, '');
 					// Inject styles into page
 		            chrome.tabs.insertCSS(tab.id, { 'code': code })
+					// Close popup
+					window.close();
 				})
 
 				// disable this extension for this page (until the page changes!)
 				chrome.browserAction.disable(tab.id);
 
-				// Close popup
-				window.close();
 			});
 		})
 
