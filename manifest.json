@@ -34,5 +34,5 @@
             "js": ["scripts/ExtMessagePasser.js", "scripts/ExtensionTracker.js"]
         }
     ],
-    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com chrome-extension://clapakcnmiimhnnocbmabiigfdmnihnb/scripts/analytics.js; object-src 'self'"
+    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com chrome-extension://gbblinkjgdfpfijckdifhdiijmcpjebj/scripts/analytics.js; object-src 'self'"
 }
