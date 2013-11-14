@@ -4,7 +4,7 @@
     "name": "Fleex extension for Google Chrome™",
     "short_name": "Fleex extension",
     "description": "Learn English surfing the web",
-    "version": "1.0",
+    "version": "1.0.1",
 
     "permissions": [
         "tabs",
@@ -34,5 +34,5 @@
             "js": ["scripts/ExtMessagePasser.js", "scripts/ExtensionTracker.js"]
         }
     ],
-    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com chrome-extension://gbblinkjgdfpfijckdifhdiijmcpjebj/scripts/analytics.js; object-src 'self'"
+    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com chrome-extension://gbblinkjgdfpfijckdifhdiijmcpjebj  /scripts/analytics.js; object-src 'self'"
 }
