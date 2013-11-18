@@ -32,7 +32,7 @@ $.getJSON(chrome.extension.getURL('config.json'), function(settings) {
 
 	// Listen to changes on the authentication cookie
 	chrome.cookies.onChanged.addListener(function(changeInfo){
-		if(changeInfo.cookie.name==aspnetAuthCookieName){
+		if(changeInfo.cookie.name==aspnetAuthCookieName && serverBaseUrl.indexOf(changeInfo.cookie.domain)!=-1){
 			if(changeInfo.removed && changeInfo.cause != 'overwrite'){
 				authChangeCallback(false);
 			} else{
