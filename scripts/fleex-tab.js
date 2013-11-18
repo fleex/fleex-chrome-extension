@@ -1,7 +1,12 @@
-// reactivate tab everytime it changes
+
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
-	//activate tab
-	chrome.browserAction.enable(tabId);
+	if(changeInfo.status !== 'complete'){
+		// deactivate tab during the loading
+		chrome.browserAction.disable(tab.id);
+	} else {
+		// reactivate tab everytime it has changed
+		chrome.browserAction.enable(tabId);
+	}
 })
 
 // The main function, that fleexes the page
