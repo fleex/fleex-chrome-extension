@@ -8,6 +8,7 @@
 
     "permissions": [
         "tabs",
+        "webNavigation",
         "cookies",
         "http://*/",
         "https://*/"

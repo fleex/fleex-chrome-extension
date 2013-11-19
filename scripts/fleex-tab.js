@@ -1,12 +1,9 @@
-
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
-	if(changeInfo.status !== 'complete'){
-		// deactivate tab during the loading
-		chrome.browserAction.disable(tab.id);
-	} else {
-		// reactivate tab everytime it has changed
-		chrome.browserAction.enable(tabId);
-	}
+// Disable extension when page is loading
+chrome.webNavigation.onBeforeNavigate.addListener(function(details){
+	chrome.browserAction.disable(details.tabId);
+})
+chrome.webNavigation.onCompleted.addListener(function(details){
+	chrome.browserAction.enable(details.tabId);
 })
 
 // The main function, that fleexes the page
