@@ -1,13 +1,13 @@
-// Register onClick event on BrowserAction  ---------------------------------------
+// Register onClick event on BrowserAction  ----------------------------------------------------------
 chrome.browserAction.onClicked.addListener(function(tab){
-	fleexTab(tab)
+	injectScriptsAndStylesInTab(tab)
 });
 
 
-// ------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------
 
 // The main function, that fleexes the page
-function fleexTab(tab){
+function injectScriptsAndStylesInTab(tab){
 
 	// Get server base url from settings
 	$.getJSON(chrome.extension.getURL('config.json'), function(settings) {
@@ -78,7 +78,7 @@ function fleexTab(tab){
 }
 
 
-// disable/enable extension when page is loading --------------------------------
+// disable/enable extension when page is loading ----------------------------------------------------------
 // see http://developer.chrome.com/extensions/webNavigation.html#event-onBeforeNavigate
 
 chrome.webNavigation.onCommitted.addListener(function(details){
@@ -89,7 +89,7 @@ chrome.webNavigation.onCompleted.addListener(function(details){
 })
 
 
-// messaging ---------------------------------------------------------------------
+// messaging ----------------------------------------------------------------------------------------------
 
 // listen to track ga events
 chrome.extension.onMessage.addListener(
