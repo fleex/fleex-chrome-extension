@@ -1,5 +1,5 @@
 // Disable extension when page is loading
-chrome.webNavigation.onBeforeNavigate.addListener(function(details){
+chrome.webNavigation.onCommitted.addListener(function(details){
 	chrome.browserAction.disable(details.tabId);
 })
 chrome.webNavigation.onCompleted.addListener(function(details){

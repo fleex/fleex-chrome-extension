@@ -53,10 +53,8 @@ $.getJSON(chrome.extension.getURL('config.json'), function(settings) {
 	})
 });*/
 
-debugger;
 // Register onClick event on BrowserAction (only raised if no popup is set)
 chrome.browserAction.onClicked.addListener(function(tab){
-	debugger;
 	fleexTab(tab)
 });
 
