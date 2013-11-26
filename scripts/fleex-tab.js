@@ -1,10 +1,15 @@
-// Disable extension when page is loading
+// disable/enable extension when page is loading --------------------------
+// see http://developer.chrome.com/extensions/webNavigation.html#event-onBeforeNavigate
+
 chrome.webNavigation.onCommitted.addListener(function(details){
 	chrome.browserAction.disable(details.tabId);
 })
 chrome.webNavigation.onCompleted.addListener(function(details){
 	chrome.browserAction.enable(details.tabId);
 })
+
+
+// ------------------------------------------------------------------------
 
 // The main function, that fleexes the page
 function fleexTab(tab){
