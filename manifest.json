@@ -4,12 +4,11 @@
     "name": "Fleex extension for Google Chrome™",
     "short_name": "Fleex extension",
     "description": "Learn English surfing the web",
-    "version": "1.0.6",
+    "version": "1.0.7",
 
     "permissions": [
         "tabs",
         "webNavigation",
-        "cookies",
         "http://*/",
         "https://*/"
     ],
