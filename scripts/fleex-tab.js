@@ -7,7 +7,7 @@ chrome.webNavigation.onCompleted.addListener(function(details){
 })
 
 // The main function, that fleexes the page
-function fleexTab (tab) {
+function fleexTab(tab){
 
 	// Get server base url from settings
 	$.getJSON(chrome.extension.getURL('config.json'), function(settings) {

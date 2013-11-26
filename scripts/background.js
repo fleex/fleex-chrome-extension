@@ -1,4 +1,4 @@
-// Get server base url from settings
+/*// Get server base url from settings
 $.getJSON(chrome.extension.getURL('config.json'), function(settings) {
 	var serverBaseUrl = settings.serverBaseUrl;
 	var isAuthenticated = false;
@@ -51,6 +51,13 @@ $.getJSON(chrome.extension.getURL('config.json'), function(settings) {
 			chrome.tabs.create({ 'url': serverBaseUrl+'/Account/Login' });
 		}
 	})
+});*/
+
+debugger;
+// Register onClick event on BrowserAction (only raised if no popup is set)
+chrome.browserAction.onClicked.addListener(function(tab){
+	debugger;
+	fleexTab(tab)
 });
 
 // messaging ---------------------------------------------------------------------
